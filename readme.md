@@ -5,7 +5,7 @@ Travel Bucket List
 CRUD app, wish list of popular travel locations with rating and description
 
 ## Wireframe: 
-![wireframe](./TravelWireframe.jpg)
+![wireframe](TravelWireframe.jpg)
 
 ## User stories: 
 
@@ -20,3 +20,4 @@ CRUD app, wish list of popular travel locations with rating and description
 ## Plan to fix/ features to add:
 
 ## Instructions for downloading the code and running it on localhost:
+
