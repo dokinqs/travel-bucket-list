@@ -1,10 +1,11 @@
 // require pg-promise
 const pgp = require('pg-promise')();
 
-// require object, pass to pgp to connect to db
-// Check export properties
+// require obj, connect to db
+// check export properties
 const config = require('./dbConfig');
-// Connect to database
+// pass to pgp to connect to db
 const db = pgp(config);
-// confirm proper configuration
+// confirm configuration
 console.log(db);
+
