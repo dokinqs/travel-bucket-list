@@ -12,15 +12,16 @@ User can make a post it style layout grid list of places they want to visit with
 User can add, look at, edit, and delete destinations.
 
 ## Technologies: 
-Javascript, PSQL
+Javascript, PSQL, HTML, CSS
 
 ## API: 
-
+Google Geolocation API, CountryAPI
 
 ## Modules: 
 Express, Nodemon, EJS, Morgan, Body-parser, Pg-promise, Method-override
 
 ## Code snippet:
+
 
 ## Plan to fix/ features to add:
 log in authorization and authentication
