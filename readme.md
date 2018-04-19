@@ -8,8 +8,15 @@ CRUD app, wish list of popular travel locations with rating and description
 ![wireframe](TravelWireframe.JPG)
 
 ## User stories: 
-User can make a post it style layout grid list of places they want to visit with notes on things to do and a rating out of five stars.
-User can add, look at, edit, and delete destinations.
+Overview: User can create a post-it style layout grid list of places they want to visit with notes on things to do and a rating out of five stars.
+
+C: User can add a country location to their bucket list. The database would populate the country entry with details on currency, language, and display the country flag svg image.
+
+R: User can look at a grid view of countries they have saved on their bucket list. 
+
+U: User can edit the rating on each country and the list would automatically and delete destinations.
+
+D: User can remove a country that they don't want to visit anymore or have visited since putting it on the wish list. 
 
 ## Technologies: 
 Javascript, PSQL, HTML, CSS
