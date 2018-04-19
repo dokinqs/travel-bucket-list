@@ -9,3 +9,4 @@ const db = pgp(config);
 // confirm configuration
 console.log(db);
 
+module.exports = db;
