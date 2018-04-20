@@ -1,4 +1,4 @@
-const locationsRouter = require('ex[ress').Router();
+const locationsRouter = require('express').Router();
 
 const locationDb = require('../models/location');
 
@@ -40,8 +40,8 @@ app.post('/locations', (req, res) => {
 });
 
 // READ
-// get all
-app.get('/locations', (req, res) => {
+function getAll(req, res) {
+// app.get('/locations', (req, res) => {
   // res.send('get all locations');
   locationDb.getAllLocations()
     .then(data => {
@@ -60,7 +60,8 @@ app.get('/locations', (req, res) => {
     })
 });
 
-app.get('/location/:id', (req, res) => {
+function getOne(req, res) {
+// app.get('/location/:id', (req, res) => {
   console.log(req.params); // get doesn't use body-parser
   // res.send(`get location with id ${req.params.id}`);
   locationDb.getOneLocation(req.params.id)
@@ -81,8 +82,9 @@ app.get('/location/:id', (req, res) => {
 });
 
 // UPDATE
-app.put('/locations/:id', (req, res) => {
-  console.log(req.body);
+function update(req, res) {
+// app.put('/locations/:id', (req, res) => {
+//   console.log(req.body);
   // res.send(`update location with id ${req.params.id}`)
   req.body.locations_id = req.params.id;
   locationDb.updateLocation(req.body)
@@ -102,9 +104,10 @@ app.put('/locations/:id', (req, res) => {
 })
 
 // DELETE
-app.remove('/locations/:id', (req, res) => {
+function remove(req, res) {
+// app.remove('/locations/:id', (req, res) => {
   // delete doesn't use body-parser
-  // res.send(`delete location with id ${req.params.id}`)
+  // res.send(`remove location with id ${req.params.id}`)
   locationDb.removeLocation(req.params.id)
   .then(() => {
     res.json({
