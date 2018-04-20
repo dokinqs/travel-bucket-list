@@ -2,25 +2,47 @@ const locationsRouter = require('express').Router();
 
 const locationDb = require('../models/location');
 
-function getAll(req, res) {
+function getAll(req, res, next) {
+  console.log('About to query the DB');
   locationDb.getAllLocations()
   .then(data => {
-    console.log(data);
-    res.json({
-      quotes: data,
-      status: 'ok'
-    })
+    // console.log(data);
+    // res.json({
+    //   quotes: data,
+    //   status: 'ok'
+    // })
+    console.log('Queried the DB and got ' + data.length + ' results');
+    res.locals.locations = data;
+    next();
   })
   .catch(err => {
-    res.status(500).json({
-      status: 'error',
-      message: err.message
-    });
+    // res.status(500).json({
+    //   status: 'error',
+    //   message: err.message
+    // });
+    next(err);
   })
 }
 
+function sendLocations(req, res) {
+    console.log('I send successful responses');
+    res.json({
+      status: 'ok',
+      quotes: res.locals.locations
+    });
+}
+
+function sendError(err, req, res, next) {
+  console.log('I send errors');
+  res.status(500).json({
+    status: 'error',
+    message: err.message
+  })
+   }
+
 // CREATE
-app.post('/locations', (req, res) => {
+function create(req, res) {
+// app.post('/locations', (req, res) => {
   console.log(req.body);
   // res.send('create location');
   locationDb.createLocation(req.body)
@@ -37,7 +59,7 @@ app.post('/locations', (req, res) => {
       message: err.message
     })
   })
-});
+}
 
 // READ
 function getAll(req, res) {
@@ -58,7 +80,7 @@ function getAll(req, res) {
         message: err.message
       })
     })
-});
+}
 
 function getOne(req, res) {
 // app.get('/location/:id', (req, res) => {
@@ -79,14 +101,14 @@ function getOne(req, res) {
       message: err.message
     })
   })
-});
+}
 
 // UPDATE
 function update(req, res) {
 // app.put('/locations/:id', (req, res) => {
 //   console.log(req.body);
   // res.send(`update location with id ${req.params.id}`)
-  req.body.locations_id = req.params.id;
+  req.body.location_id = req.params.id;
   locationDb.updateLocation(req.body)
   .then(data => {
     console.log(data);
@@ -101,7 +123,7 @@ function update(req, res) {
       message: err.message
     })
   })
-})
+}
 
 // DELETE
 function remove(req, res) {
@@ -121,13 +143,13 @@ function remove(req, res) {
       mesage: err.message
     })
   })
-});
+};
 
 locationsRouter.route('/')
-.get(getAll)
+.get(getAll, sendLocations, sendError)
 .post(create);
 
-locationsRouter.route('/:id')
+locationsRouter.route('/:location_id')
 .get(getOne)
 .put(update)
 .delete(remove);
