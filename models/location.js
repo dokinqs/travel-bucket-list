@@ -1,6 +1,6 @@
 // import { builtinModules } from 'module';
 
-const db = require('../config/connection.js');
+const db = require('../config/connection');
 
 function getAllLocations() {
   const queryPromise = db.any(`

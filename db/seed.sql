@@ -2,16 +2,74 @@
 
 DELETE FROM locations;
 
-INSERT INTO locations (Name, username)
-VALUES ('Iceland', 'doge');
+-- INSERT INTO locations (Name, username)
+-- VALUES ('Iceland', 'doge');
 
-INSERT INTO locations (Name, username)
-VALUES ('Spain', 'Unknown');
+-- INSERT INTO locations (Name, username)
+-- VALUES ('Spain', 'Unknown');
 
-INSERT INTO locations (Name, username)
-VALUES ('Japan', 'Karen');
+-- INSERT INTO locations (Name, username)
+-- VALUES ('Japan', 'Karen');
 
--- {
+-- INSERT INTO locations (Name, NativeLanguage, CurrencyName)
+INSERT INTO locations
+(Name, Alpha2Code, Alpha3Code, NativeName, Region, SubRegion, Latitude,Longitude, Area, NumericCode, NativeLanguage, CurrencyCode, CurrencyName, CurrencySymbol, Flag, FlagPng)
+VALUES 
+('Afghanistan',
+'AF',
+'AFG',
+'افغانستان',
+'Asia',
+'Southern Asia',
+ '33',
+'65',
+652230,
+ 4,
+'pus',
+ 'AFN',
+'Afghan afghani',
+'؋',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/afg.svg',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/afg.png'
+),
+(
+'Åland Islands',
+'AX',
+'ALA',
+'Åland',
+'Europe',
+'Northern Europe',
+ '60.116667',
+'19.9',
+1580,
+ 248,
+'swe',
+ 'EUR',
+'Euro',
+'€',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/ala.svg',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/ala.png'),
+(
+'Albania',
+'AL',
+'ALB',
+'Shqipëria',
+'Europe',
+'Southern Europe',
+'41',
+'20',
+28748,
+8,
+'sqi',
+'ALL',
+'Albanian lek',
+'L',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/alb.svg',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/alb.png'
+);
+
+
+-- (
 -- Name: "Iceland",
 -- Alpha2Code: "IS",
 -- Alpha3Code: "ISL",
@@ -28,9 +86,9 @@ VALUES ('Japan', 'Karen');
 -- CurrencySymbol: "kr",
 -- Flag: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/isl.svg",
 -- FlagPng: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/isl.png"
--- },
+-- ),
 
--- {
+-- (
 -- Name: "Spain",
 -- Alpha2Code: "ES",
 -- Alpha3Code: "ESP",
@@ -47,9 +105,9 @@ VALUES ('Japan', 'Karen');
 -- CurrencySymbol: "€",
 -- Flag: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/esp.svg",
 -- FlagPng: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/esp.png"
--- },
+-- ),
 
--- {
+-- (
 -- Name: "Japan",
 -- Alpha2Code: "JP",
 -- Alpha3Code: "JPN",
@@ -66,9 +124,9 @@ VALUES ('Japan', 'Karen');
 -- CurrencySymbol: "¥",
 -- Flag: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/jpn.svg",
 -- FlagPng: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/jpn.png"
--- },
+-- ),
 
--- {
+-- (
 -- Name: "China",
 -- Alpha2Code: "CN",
 -- Alpha3Code: "CHN",
@@ -85,4 +143,4 @@ VALUES ('Japan', 'Karen');
 -- CurrencySymbol: "¥",
 -- Flag: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/chn.svg",
 -- FlagPng: "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/chn.png"
--- },
+-- )

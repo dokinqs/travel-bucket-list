@@ -1,0 +1,115 @@
+html {
+  background-image: url('https://images-na.ssl-images-amazon.com/images/I/71NxSfB0QiL._SX700_.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background-color: #bed8ee; */
+  text-align: center;
+  font-family: 'Playfair Display';
+  height: 100%;
+  /* width: 100%; */
+}
+h1 {
+  color: #2c608d;
+}
+
+/* div {
+
+} */
+
+body {
+  /* font-family: serif; */
+  font-size: 12px;
+  margin: 0;
+  /* height: 100%; */
+}
+
+main {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  /* background: lightblue; */
+}
+
+.location--author {
+  font-style: italic;
+}
+
+.locations-list {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.single-location {
+  text-align: center;
+}
+
+.single-location h2 {
+  margin-bottom: 20px;
+}
+
+.single-location .location-link {
+  margin-top: 20px;
+}
+
+.location-container {
+  border: solid 5px green;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+a:hover, a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-link {
+  text-decoration: underline;
+  font-size: 40px;
+  color: red;
+}
+
+.list-link:hover {
+  color: darkgreen;
+  text-decoration: underline;
+}
+
+nav {
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background: darkgray;
+  color: white;
+  font-family: 'Karla';
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20%;
+}
+
+form.create-location {
+  background: darkgray;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+form.create-location button {
+  display: block;
+  margin: 25px auto;
+}

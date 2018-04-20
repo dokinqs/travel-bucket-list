@@ -29,8 +29,18 @@ function sendCreateLocation(req, res) {
   });
 }
 
+function redirectToLocation(req, res) {
+  console.log('redirecting to /locations/' + res.locals.newLocation.locations_id);
+}
+
+function sendNewLocation(req, res) {
+  res.render('locations/newLocation');
+}
+
 module.exports = {
   sendLocations: sendLocations,
   sendOneLocation: sendOneLocation,
-  sendCreateLocation: sendCreateLocation
+  sendCreateLocation: sendCreateLocation,
+  sendNewLocation: sendNewLocation,
+  redirectToLocation: redirectToLocation
 };

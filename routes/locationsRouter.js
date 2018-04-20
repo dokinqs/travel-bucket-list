@@ -18,7 +18,7 @@ function sendError(err, req, res, next) {
     status: 'error',
     message: err.message
   })
-   }
+}
 
 
 // UPDATE
@@ -48,6 +48,7 @@ function remove(req, res) {
 // app.remove('/locations/:id', (req, res) => {
   // delete doesn't use body-parser
   // res.send(`remove location with id ${req.params.id}`)
+  console.log('going to remove');
   locationDb.removeLocation(req.params.id)
   .then(() => {
     res.json({
@@ -65,7 +66,10 @@ function remove(req, res) {
 
 locationsRouter.route('/')
   .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
-  .post(locationsController.create, locationsViewController.sendCreateLocation);
+  // .post(locationsController.create, locationsViewController.sendCreateLocation);
+  .post(locationsController.create, locationsViewController.redirectToLocation);
+
+locationsRouter.get('/new', locationsViewController.sendNewLocation);
 
 locationsRouter.route('/:location_id')
   .get(locationsController.getOne, locationsViewController.sendOneLocation, sendError)

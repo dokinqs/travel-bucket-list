@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
+const methodOverride = require('method-override');
 // const locationDb = require('./models/location');
 const locationsRouter = require('./routes/locationsRouter');
 
@@ -20,6 +20,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 // parse json req bodies (POST and PUT)
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
 // view middleware/public directory for static assets
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // handle get requests to root route
 app.get('/', (req, res) => {
   // res.send('hi');
-  res.render('hello');
+  res.render('homepage');
 });
 
 app.use('/locations', locationsRouter);
