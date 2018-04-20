@@ -1,36 +1,16 @@
 const locationsRouter = require('express').Router();
+const locationsController = require('../controllers/locationsController');
+const locationsViewController = require('../controllers/locationsViewController');
 
 const locationDb = require('../models/location');
 
-function getAll(req, res, next) {
-  console.log('About to query the DB');
-  locationDb.getAllLocations()
-  .then(data => {
-    // console.log(data);
-    // res.json({
-    //   quotes: data,
-    //   status: 'ok'
-    // })
-    console.log('Queried the DB and got ' + data.length + ' results');
-    res.locals.locations = data;
-    next();
-  })
-  .catch(err => {
-    // res.status(500).json({
-    //   status: 'error',
-    //   message: err.message
-    // });
-    next(err);
-  })
-}
-
-function sendLocations(req, res) {
-    console.log('I send successful responses');
-    res.json({
-      status: 'ok',
-      quotes: res.locals.locations
-    });
-}
+// function sendLocations(req, res) {
+//     console.log('I send successful responses');
+//     res.json({
+//       status: 'ok',
+//       quotes: res.locals.locations
+//     });
+// }
 
 function sendError(err, req, res, next) {
   console.log('I send errors');
@@ -40,68 +20,6 @@ function sendError(err, req, res, next) {
   })
    }
 
-// CREATE
-function create(req, res) {
-// app.post('/locations', (req, res) => {
-  console.log(req.body);
-  // res.send('create location');
-  locationDb.createLocation(req.body)
-  .then(data => {
-    console.log(data);
-    res.json({
-      status: 'ok',
-      quote: data
-    })
-  })
-  .catch(err => {
-    res.status(500).json({
-      status: 'error',
-      message: err.message
-    })
-  })
-}
-
-// READ
-function getAll(req, res) {
-// app.get('/locations', (req, res) => {
-  // res.send('get all locations');
-  locationDb.getAllLocations()
-    .then(data => {
-      console.log(data);
-      res.json({
-        locations: data,
-        status: 'ok'
-      })
-    })
-    .catch(err => {
-      // console.log(err.message);
-      res.status(500).json({
-        status: 'error',
-        message: err.message
-      })
-    })
-}
-
-function getOne(req, res) {
-// app.get('/location/:id', (req, res) => {
-  console.log(req.params); // get doesn't use body-parser
-  // res.send(`get location with id ${req.params.id}`);
-  locationDb.getOneLocation(req.params.id)
-  .then(data => {
-    console.log(data);
-    res.json({
-      locations: data,
-      status: 'ok'
-    })
-  })
-  .catch(err => {
-    // console.log(err.message);
-    res.status(500).json({
-      status: 'error',
-      message: err.message
-    })
-  })
-}
 
 // UPDATE
 function update(req, res) {
@@ -146,12 +64,12 @@ function remove(req, res) {
 };
 
 locationsRouter.route('/')
-.get(getAll, sendLocations, sendError)
-.post(create);
+  .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
+  .post(locationsController.create, locationsViewController.sendCreateLocation);
 
 locationsRouter.route('/:location_id')
-.get(getOne)
-.put(update)
-.delete(remove);
+  .get(locationsController.getOne, locationsViewController.sendOneLocation, sendError)
+  .put(update)
+  .delete(remove);
 
 module.exports = locationsRouter;
