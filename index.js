@@ -1,8 +1,10 @@
+const path = require('path');
 // import dependencies
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const locationDb = require('./models/location');
+
+// const locationDb = require('./models/location');
 const locationsRouter = require('./routes/locationsRouter');
 
 // declare the port, passed to app.listen below
@@ -13,15 +15,21 @@ const app = express();
 
 // use middleware
 // log request info to console
-app.use(logger( 'dev'));
+app.use(logger('dev'));
 // parse urlencoded req bodies (POST and PUT)
 app.use(bodyParser.urlencoded({extended: false}));
 // parse json req bodies (POST and PUT)
 app.use(bodyParser.json());
 
+// view middleware/public directory for static assets
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
+
 // handle get requests to root route
 app.get('/', (req, res) => {
-  res.send('hi');
+  // res.send('hi');
+  res.render('hello');
 });
 
 app.use('/locations', locationsRouter);
