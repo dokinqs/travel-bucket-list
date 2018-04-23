@@ -26,7 +26,7 @@ function update(req, res) {
 // app.put('/locations/:id', (req, res) => {
 //   console.log(req.body);
   // res.send(`update location with id ${req.params.id}`)
-  req.body.location_id = req.params.id;
+  req.body.locations_id = req.params.id;
   locationDb.updateLocation(req.body)
   .then(data => {
     console.log(data);
@@ -44,7 +44,7 @@ function update(req, res) {
 }
 
 // DELETE
-function remove(req, res) {
+function destroy(req, res) {
 // app.remove('/locations/:id', (req, res) => {
   // delete doesn't use body-parser
   // res.send(`remove location with id ${req.params.id}`)

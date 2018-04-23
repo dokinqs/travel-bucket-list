@@ -12,7 +12,7 @@ function getAllLocations() {
 function getOneLocation(id) {
   const queryPromise = db.one(`
   SELECT * FROM locations
-  WHERE location_id = $1
+  WHERE locations_id = $1
   `, id);
   return queryPromise;
 }
@@ -30,7 +30,7 @@ function updateLocation(location) {
   const queryPromise = db.one(`
   UPDATE locations
   SET cname = $/cname/, nativelanguage = $/nativelanguage/, currencyname = $/currencyname/
-  WHERE location_id = $/location_id/
+  WHERE locations_id = $/locations_id/
   RETURNING *
   `, location);
   return queryPromise;
@@ -39,7 +39,7 @@ function updateLocation(location) {
 function destroyLocation(id) {
   const queryPromise = db.none(`
   DELETE FROM locations 
-  WHERE location_id = $1
+  WHERE locations_id = $1
   `, id);
   return queryPromise;
 }   

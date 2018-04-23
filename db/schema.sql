@@ -3,13 +3,13 @@
 DROP TABLE IF EXISTS locations;
 
 -- CREATE TABLE locations (
---   location_id SERIAL PRIMARY KEY,
+--   locations_id SERIAL PRIMARY KEY,
 --   content TEXT NOT NULL,
 --   username VARCHAR(255)
 -- );
 
 CREATE TABLE locations (
-id SERIAL PRIMARY KEY,
+locations_id SERIAL PRIMARY KEY,
 CName VARCHAR(80),
 Alpha2Code VARCHAR(80),
 Alpha3Code VARCHAR(80),

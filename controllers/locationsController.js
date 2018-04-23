@@ -72,13 +72,17 @@ function create(req, res, next) {
 }
 
 
-function destroy(req, res, next) {
+function destroy(req, res) {
   locationDb.destroyLocation(req.params.id)
     .then(() => {
       res.redirect('/locations');
     })
     .catch(err => {
-      next(err);
+      // next(err);
+      res.status(500).json({
+        status: 'error',
+        message: err.message
+      })
     })
 }
 
