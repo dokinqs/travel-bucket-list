@@ -1,14 +1,12 @@
 <div class="location-container">
   <h2># <%= location.locations_id %></h2>
-  <p>Region: <%= location.region %></p>
-  <p>Currency: <%= location.currencyname %></p>
-  <img src="<%=location.flagpng%>" width="100" alt="<%=location.cname%>" />
-  <br>
+  <img src="<%=location.flagpng%>" width="100" alt="<%=location.cname%>" /><br>
   <!-- <div><%= JSON.stringify(location) %></div> -->
   <div class="location-cname">
     Country: <%= location.cname %>
   </div>
-  
+  <p>Region: <%= location.region %></p>
+  <!-- <p>Currency: <%= location.currencyname %></p> -->
   <form action="/locations/<%=location.locations_id%>/edit" class='put' method="GET">
     <button class="edit" type="submit" value="Edit">
       Edit Location</button>
