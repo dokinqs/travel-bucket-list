@@ -69,11 +69,13 @@ locationsRouter.route('/')
   // .post(locationsController.create, locationsViewController.sendCreateLocation);
   .post(locationsController.create, locationsViewController.redirectToLocation);
 
-locationsRouter.get('/new', locationsViewController.sendNewLocation);
+// locationsRouter.get('/new', locationsViewController.sendNewLocation);
+locationsRouter.route('/new')
+  .get(locationsViewController.sendNewLocation);
 
-locationsRouter.route('/:location_id')
+locationsRouter.route('/:id')
   .get(locationsController.getOne, locationsViewController.sendOneLocation, sendError)
-  .put(update)
-  .delete(remove);
+  // .put(locationsController.update)
+  .delete(locationsController.destroy, locationsViewController.destroyLocation);
 
 module.exports = locationsRouter;

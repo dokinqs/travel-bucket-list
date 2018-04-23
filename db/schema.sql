@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS locations;
 
 CREATE TABLE locations (
 id SERIAL PRIMARY KEY,
-Name VARCHAR(80),
+CName VARCHAR(80),
 Alpha2Code VARCHAR(80),
 Alpha3Code VARCHAR(80),
 NativeName VARCHAR(80),

@@ -12,10 +12,12 @@ DELETE FROM locations;
 -- VALUES ('Japan', 'Karen');
 
 -- INSERT INTO locations (Name, NativeLanguage, CurrencyName)
+
 INSERT INTO locations
-(Name, Alpha2Code, Alpha3Code, NativeName, Region, SubRegion, Latitude,Longitude, Area, NumericCode, NativeLanguage, CurrencyCode, CurrencyName, CurrencySymbol, Flag, FlagPng)
+(CName, Alpha2Code, Alpha3Code, NativeName, Region, SubRegion, Latitude,Longitude, Area, NumericCode, NativeLanguage, CurrencyCode, CurrencyName, CurrencySymbol, Flag, FlagPng)
 VALUES 
-('Afghanistan',
+(
+'Afghanistan',
 'AF',
 'AFG',
 'افغانستان',

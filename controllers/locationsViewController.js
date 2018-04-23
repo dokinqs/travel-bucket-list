@@ -29,6 +29,13 @@ function sendCreateLocation(req, res) {
   });
 }
 
+function editLocation(req, res) {
+  location = res.locals.location;
+  res.render(`locations/edit`, {
+    location: res.locals.location
+  })
+}
+
 function redirectToLocation(req, res) {
   console.log('redirecting to /locations/' + res.locals.newLocation.locations_id);
 }
@@ -37,10 +44,16 @@ function sendNewLocation(req, res) {
   res.render('locations/newLocation');
 }
 
+function destroyLocation(req, res) {
+  res.redirect(`locations/index`);
+}
+
 module.exports = {
-  sendLocations: sendLocations,
-  sendOneLocation: sendOneLocation,
-  sendCreateLocation: sendCreateLocation,
-  sendNewLocation: sendNewLocation,
-  redirectToLocation: redirectToLocation
+  sendLocations,
+  sendOneLocation,
+  sendCreateLocation,
+  sendNewLocation,
+  editLocation,
+  redirectToLocation,
+  destroyLocation
 };

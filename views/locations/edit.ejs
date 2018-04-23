@@ -1,0 +1,24 @@
+<% include ../../partials/boilerplate %>
+
+<div class="form">
+  <div class="add">
+  
+  <form action="/locations/<%= location.id %>?_method=PUT" method="POST">
+    <input type="text" name="cname" value="<%= location.cname %>" /><br>
+    <select name="location_id">
+      <% locations.forEach((location) => { %>
+        <option value="<%= location.id %>">
+          <%= location.cname %>
+        </option>
+      <% }) %>
+    </select> <br>
+    <input type="submit" value="Add country" />
+  </form>
+
+  </div>
+</div>
+
+<a href="/location"> Back to Locations </a>
+</div>
+
+<% include ../../partials/end %>

@@ -34,7 +34,7 @@ function getOne(req, res, next) {
     //   locations: data,
     //   status: 'ok'
     // })
-    res.locals.data = data;
+    res.locals.location = data;
     next();
   })
   .catch(err => {
@@ -69,10 +69,23 @@ function create(req, res, next) {
       // })
       next(err);
     })
-  }
+}
+
+
+function destroy(req, res, next) {
+  locationDb.destroyLocation(req.params.id)
+    .then(() => {
+      res.redirect('/locations');
+    })
+    .catch(err => {
+      next(err);
+    })
+}
+
 
 module.exports = {
-  getAll: getAll,
-  getOne: getOne,
-  create: create
+  getAll,
+  getOne,
+  create,
+  destroy
 };

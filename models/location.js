@@ -1,6 +1,6 @@
-// import { builtinModules } from 'module';
-
 const db = require('../config/connection');
+
+// SELECT locations.cname, locations.nativelanguage, locations.currencyname FROM locations
 
 function getAllLocations() {
   const queryPromise = db.any(`
@@ -12,15 +12,15 @@ function getAllLocations() {
 function getOneLocation(id) {
   const queryPromise = db.one(`
   SELECT * FROM locations
-  WHERE locations_id = $1
+  WHERE location_id = $1
   `, id);
   return queryPromise;
 }
 
 function createLocation(location) {
   const queryPromise = db.one(`
-  INSERT INTO locations (Name, NativeLanguage, CurrencyName)
-  VALUES ($/Name/, $/NativeLanguage/, $/CurrencyName/
+  INSERT INTO locations (cname, nativelanguage, currencyname)
+  VALUES ($/cname/, $/nativelanguage/, $/currencyname/)
   RETURNING *
   `, location);
   return queryPromise;
@@ -29,16 +29,20 @@ function createLocation(location) {
 function updateLocation(location) {
   const queryPromise = db.one(`
   UPDATE locations
-  SET Name = $/Name/, $/NativeLanguage/, $/CurrencyName/
-  WHERE locations_id = $/locations_id/`)
+  SET cname = $/cname/, nativelanguage = $/nativelanguage/, currencyname = $/currencyname/
+  WHERE location_id = $/location_id/
+  RETURNING *
+  `, location);
+  return queryPromise;
 }
 
 function destroyLocation(id) {
   const queryPromise = db.none(`
-  DELETE FROM locations WHERE locations_id = $1
+  DELETE FROM locations 
+  WHERE location_id = $1
   `, id);
   return queryPromise;
-}
+}   
 
 module.exports = {
   getAllLocations,
@@ -47,3 +51,4 @@ module.exports = {
   updateLocation,
   destroyLocation
 }
+
