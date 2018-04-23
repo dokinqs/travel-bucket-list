@@ -17,10 +17,14 @@ function getOneLocation(id) {
   return queryPromise;
 }
 
+// INSERT INTO locations (cname, nativelanguage, currencyname)
+// VALUES ($/cname/, $/nativelanguage/, $/currencyname/)
+
 function createLocation(location) {
+  console.log(JSON.stringify(location));
   const queryPromise = db.one(`
-  INSERT INTO locations (cname, nativelanguage, currencyname)
-  VALUES ($/cname/, $/nativelanguage/, $/currencyname/)
+  INSERT INTO locations (cname)
+  VALUES ($/cname/)
   RETURNING *
   `, location);
   return queryPromise;
@@ -43,6 +47,8 @@ function destroyLocation(id) {
   `, id);
   return queryPromise;
 }   
+
+
 
 module.exports = {
   getAllLocations,

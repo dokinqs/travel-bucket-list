@@ -7,9 +7,9 @@
   </div>
   <p>Region: <%= location.region %></p>
   <!-- <p>Currency: <%= location.currencyname %></p> -->
-  <form action="/locations/<%=location.locations_id%>/edit" class='put' method="GET">
-    <button class="edit" type="submit" value="Edit">
-      Edit Location</button>
+  <form action="/favs" class='post' method="POST">
+    <button class="edit" type="submit" value="Add">
+      Add to Favorites</button>
   </form>
   <br>
 

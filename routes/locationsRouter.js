@@ -12,72 +12,75 @@ const locationDb = require('../models/location');
 //     });
 // }
 
-function sendError(err, req, res, next) {
-  console.log('I send errors');
-  res.status(500).json({
-    status: 'error',
-    message: err.message
-  })
-}
+// function sendError(err, req, res, next) {
+//   console.log('I send errors');
+//   res.status(500).json({
+//     status: 'error',
+//     message: err.message
+//   })
+// }
 
 
-// UPDATE
-function update(req, res) {
-// app.put('/locations/:id', (req, res) => {
-//   console.log(req.body);
-  // res.send(`update location with id ${req.params.id}`)
-  req.body.locations_id = req.params.id;
-  locationDb.updateLocation(req.body)
-  .then(data => {
-    console.log(data);
-    res.json({
-      status: 'ok',
-      quote: data
-    })
-  })
-  .catch(err => {
-    res.status(500).json({
-      status: 'error',
-      message: err.message
-    })
-  })
-}
+// // UPDATE
+// function update(req, res) {
+// // app.put('/locations/:id', (req, res) => {
+// //   console.log(req.body);
+//   // res.send(`update location with id ${req.params.id}`)
+//   req.body.locations_id = req.params.id;
+//   locationDb.updateLocation(req.body)
+//   .then(data => {
+//     console.log(data);
+//     res.json({
+//       status: 'ok',
+//       quote: data
+//     })
+//   })
+//   .catch(err => {
+//     res.status(500).json({
+//       status: 'error',
+//       message: err.message
+//     })
+//   })
+// }
 
-// DELETE
-function destroy(req, res) {
-// app.remove('/locations/:id', (req, res) => {
-  // delete doesn't use body-parser
-  // res.send(`remove location with id ${req.params.id}`)
-  console.log('going to remove');
-  locationDb.removeLocation(req.params.id)
-  .then(() => {
-    res.json({
-      status: 'ok',
-      message: `Successfully removed location with id ${req.params.id}`
-    })
-  })
-  .catch(err => {
-    res.status(500).json({
-      status: 'error',
-      mesage: err.message
-    })
-  })
-};
+// // DELETE
+// function destroy(req, res) {
+// // app.remove('/locations/:id', (req, res) => {
+//   // delete doesn't use body-parser
+//   // res.send(`remove location with id ${req.params.id}`)
+//   console.log('going to remove');
+//   locationDb.removeLocation(req.params.id)
+//   .then(() => {
+//     res.json({
+//       status: 'ok',
+//       message: `Successfully removed location with id ${req.params.id}`
+//     })
+//   })
+//   .catch(err => {
+//     res.status(500).json({
+//       status: 'error',
+//       mesage: err.message
+//     })
+//   })
+// };
 
 locationsRouter.route('/')
-  .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
+  .get(locationsController.getAll, locationsViewController.sendLocations)
+  // sendError
+
   // .post(locationsController.create, locationsViewController.sendCreateLocation);
   .post(locationsController.create, locationsViewController.redirectToLocation);
 
-locationsRouter.route('/mylist')
-  .get(locationsController.getApi, locationsViewController.showApiCountries);
+// locationsRouter.route('/mylist')
+//   .get(locationsController.getApi, locationsViewController.showApiCountries);
 
 // locationsRouter.get('/new', locationsViewController.sendNewLocation);
 locationsRouter.route('/new')
   .get(locationsViewController.sendNewLocation);
 
 locationsRouter.route('/:id')
-  .get(locationsController.getOne, locationsViewController.sendOneLocation, sendError)
+  .get(locationsController.getOne, locationsViewController.sendOneLocation)
+  // sendError
   // .put(locationsController.update)
   .delete(locationsController.destroy, locationsViewController.destroyLocation);
 

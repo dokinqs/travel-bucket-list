@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 // const locationDb = require('./models/location');
 const locationsRouter = require('./routes/locationsRouter');
+const favsRouter = require('./routes/favsRouter');
 
 // declare the port, passed to app.listen below
 const PORT = process.env.PORT || 3000;
@@ -72,6 +73,7 @@ app.get('/', (req, res) => {
 // });
 
 app.use('/locations', locationsRouter);
+app.use('/favs', favsRouter);
 
 // listen on port
 app.listen(PORT, () => {

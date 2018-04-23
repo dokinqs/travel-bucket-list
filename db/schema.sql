@@ -1,4 +1,4 @@
--- \c locations_db
+\c locations_db
 
 DROP TABLE IF EXISTS locations;
 
@@ -8,4 +8,10 @@ CREATE TABLE locations (
   region VARCHAR(80),
   -- CurrencyName VARCHAR(80),
   flagpng VARCHAR(200)
+);
+
+CREATE TABLE favs (
+  fav_id SERIAL PRIMARY KEY,
+
+  locations_id INT NOT NULL REFERENCES locations(locations_id)
 );
