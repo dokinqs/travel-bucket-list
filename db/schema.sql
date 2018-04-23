@@ -2,12 +2,6 @@
 
 DROP TABLE IF EXISTS locations;
 
--- CREATE TABLE locations (
---   locations_id SERIAL PRIMARY KEY,
---   content TEXT NOT NULL,
---   username VARCHAR(255)
--- );
-
 CREATE TABLE locations (
 locations_id SERIAL PRIMARY KEY,
 CName VARCHAR(80),

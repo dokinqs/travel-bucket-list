@@ -64,6 +64,9 @@ function destroy(req, res) {
   })
 };
 
+locationsRouter.route('/locations/mylist')
+  .get(locationsController.getApi, locationsViewController.showCountries);
+
 locationsRouter.route('/')
   .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
   // .post(locationsController.create, locationsViewController.sendCreateLocation);

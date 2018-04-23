@@ -3,11 +3,11 @@
 <div class="form">
   <div class="add">
   
-  <form action="/locations/<%= location.id %>?_method=PUT" method="POST">
+  <form action="/locations/<%= location.locations_id %>?_method=PUT" method="POST">
     <input type="text" name="cname" value="<%= location.cname %>" /><br>
     <select name="locations_id">
       <% locations.forEach((location) => { %>
-        <option value="<%= location.id %>">
+        <option value="<%= location.locations_id %>">
           <%= location.cname %>
         </option>
       <% }) %>

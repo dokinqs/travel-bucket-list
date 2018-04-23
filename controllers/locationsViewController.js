@@ -1,3 +1,9 @@
+function showCountries(req, res) {
+  res.render('locations/mylist', {
+    data: res.locals.data
+  });
+}
+
 function sendLocations(req, res) {
   // console.log('I send successful responses');
   // res.json({
@@ -23,14 +29,16 @@ function sendOneLocation(req, res) {
 
 function sendCreateLocation(req, res) {
   // or write "locations/new" view and call "res.render('locations/new')"
-  res.json({
-    status: 'ok',
-    location: res.locals.newLocation
-  });
+  // res.json({
+  //   status: 'ok',
+  //   location: res.locals.newLocation
+  // });
+  const location = res.locals.newLocation
+  res.redirect(`locations/${location.id}`);
 }
 
 function editLocation(req, res) {
-  location = res.locals.location;
+  const location = res.locals.location;
   res.render(`locations/edit`, {
     location: res.locals.location
   })
@@ -45,10 +53,11 @@ function sendNewLocation(req, res) {
 }
 
 function destroyLocation(req, res) {
-  res.redirect(`locations/index`);
+  res.redirect('locations/index');
 }
 
 module.exports = {
+  showCountries,
   sendLocations,
   sendOneLocation,
   sendCreateLocation,

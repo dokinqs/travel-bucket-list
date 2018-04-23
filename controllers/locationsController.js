@@ -1,4 +1,51 @@
 const locationDb = require('../models/location');
+const fetch = require('node-fetch');
+
+const url = 'http://countryapi.gear.host/v1/Country/getCountries';
+
+function getApi(req, res, next) {
+  fetch(url)
+    .then((resp) => resp.json()) 
+    .then((data) => {
+      console.log(data);
+      return data.json();
+    })
+    .then(data => {
+      res.locals.data = data.data;
+      next();
+    })
+    .catch((err) => {
+      console.log(error);
+      next(err);
+    });
+}
+
+// CREATE
+
+function create(req, res, next) {
+  // app.post('/locations', (req, res) => {
+    console.log(req.body);
+    // res.send('create location');
+    locationDb.createLocation(req.body)
+    .then(data => {
+      console.log(data);
+      // res.json({
+      //   status: 'ok',
+      //   quote: data
+      // })
+      next();
+    })
+    .catch(err => {
+      // res.status(500).json({
+      //   status: 'error',
+      //   message: err.message
+      // })
+      next(err);
+    })
+}
+
+
+// READ
 
 function getAll(req, res, next) {
   console.log('About to query the DB');
@@ -47,30 +94,31 @@ function getOne(req, res, next) {
   })
 }
 
+// UPDATE
 
-// CREATE
-function create(req, res, next) {
-  // app.post('/locations', (req, res) => {
-    console.log(req.body);
-    // res.send('create location');
-    locationDb.createLocation(req.body)
-    .then(data => {
-      console.log(data);
-      // res.json({
-      //   status: 'ok',
-      //   quote: data
-      // })
+function edit(req, res) {
+  locationsDb.getOneLocation(req.params.id)
+    .then(data=> {
+      res.locals.location = data;
       next();
     })
-    .catch(err => {
-      // res.status(500).json({
-      //   status: 'error',
-      //   message: err.message
-      // })
-      next(err);
+    .catch(err=> {
+      err: err.message
     })
 }
 
+function update(req, res, next) {
+  req.body.id = req.params.id;
+  locationsDb.updateLocation(req.body)
+    .then(data => {
+      res.redirect(`/locations/${req.body.id}`)
+    })
+    .catch(err=> {
+      err:err
+    })
+}
+
+// DELETE
 
 function destroy(req, res) {
   locationDb.destroyLocation(req.params.id)
@@ -88,8 +136,11 @@ function destroy(req, res) {
 
 
 module.exports = {
+  getApi,
   getAll,
   getOne,
   create,
+  edit,
+  update,
   destroy
 };

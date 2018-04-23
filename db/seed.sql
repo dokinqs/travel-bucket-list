@@ -68,9 +68,25 @@ VALUES
 'L',
 'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/alb.svg',
 'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/alb.png'
+),
+(
+'Nepal',
+'NP',
+'NPL',
+'नेपाल',
+'Asia',
+'Southern Asia',
+'28',
+'84',
+147181,
+524,
+'nep',
+'NPR',
+'Nepalese rupee',
+'₨',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/npl.svg',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/npl.png'
 );
-
-
 -- (
 -- Name: "Iceland",
 -- Alpha2Code: "IS",

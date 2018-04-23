@@ -1,6 +1,9 @@
 const path = require('path');
 // import dependencies
 const express = require('express');
+const fetch = require('node-fetch');
+const request = require('request');
+const requestp = require('request-promise');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -32,6 +35,41 @@ app.get('/', (req, res) => {
   // res.send('hi');
   res.render('homepage');
 });
+
+// app.get('/mylist', (req, res) => {
+//   request.get({url: "http://countryapi.gear.host/v1/Country/getCountries", function(err, res, body) {
+//     if (!error && response.statusCode === 200) {
+//       res.json(body);
+//       console.log('mylist' + res.json(body));
+//     }
+//   }
+// })
+// });
+
+// const url = 'http://countryapi.gear.host/v1/Country/getCountries';
+
+// fetch(url)
+//   .then((resp) => resp.json()) 
+//   .then(function(data){
+//     console.log(data);
+//   })
+//   .catch(function(error) {
+//     console.log(error);
+//   });
+
+// locationsRouter.get('/mylist', (req, res, next) => {
+//   requestp('http://countryapi.gear.host/v1/Country/getCountries'), {
+//     transform: function(body) {
+//       return JSON.parse(body);
+//     }
+//   }
+//   .then((res) => {
+//     console.log(res.json());
+//     res.json();
+//     res.locals.locations = data;
+//   })
+//   .catch((err) => next(err));``
+// });
 
 app.use('/locations', locationsRouter);
 
