@@ -8,19 +8,19 @@ function getAll() {
   return queryPromise;
 }
 
-// function createFav(locations_id) {
-//   console.log(JSON.stringify(locations_id));
-//   const queryPromise = db.one(`
-//   INSERT INTO favs (locations_id)
-//   VALUES ($/locations_id/)
-//   RETURNING *
-//   `, locations_id);
-//   return queryPromise;
-// }
+function createFav(id) {
+  console.log(JSON.stringify(id));
+  const queryPromise = db.one(`
+  INSERT INTO favs (locations_id)
+  VALUES ($1)
+  RETURNING *
+  `, id);
+  return queryPromise;
+}
 
 
 
 module.exports = {
-  getAll
-  // createFav
+  getAll,
+  createFav
 };

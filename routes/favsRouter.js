@@ -17,10 +17,11 @@ const favDb = require('../models/fav');
 //   .delete(favsController.destroy, favsViewController.destroyLocation);
 
 favsRouter.route('/')
-  .get(favsController.getAll, favsViewController.showFav);
+  .get(favsController.getAll, favsViewController.showFav)
   // sendError
 
-  // .post(favsController.create, favsViewController.sendCreateLocation);
+  .post(favsController.create);
+  // , favsViewController.sendCreateFav
   // .post(favsController.create, favsViewController.redirectToLocation);
 
 module.exports = favsRouter;

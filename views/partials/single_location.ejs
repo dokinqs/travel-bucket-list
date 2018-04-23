@@ -7,10 +7,12 @@
   </div>
   <p>Region: <%= location.region %></p>
   <!-- <p>Currency: <%= location.currencyname %></p> -->
+
   <form action="/favs" class='post' method="POST">
-    <button class="edit" type="submit" value="Add">
+    <button class="edit" type="submit" value="<%=location.locations_id %>">
       Add to Favorites</button>
   </form>
+
   <br>
 
   <form action="/locations/<%= location.locations_id %>?_method=DELETE" method="POST">

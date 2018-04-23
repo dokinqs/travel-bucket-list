@@ -9,6 +9,17 @@ function getAll(req, res, next) {
   .catch(err => next(err));
 }
 
+function create(req, res, next) {
+  console.log('req ' + req);
+  console.log('params loc id ' + req.params.locations_id);
+  console.log('params id ' + req.params.id);
+  favDb.createFav(req.body)
+  .then((favorite) => {
+    res.locals.favorite = favorite;
+    next();
+  })
+  .catch(err => next(err));
+}
 
 function sendError(err, req, res, next) {
   console.log('I send errors');
@@ -20,5 +31,6 @@ function sendError(err, req, res, next) {
 
 module.exports = {
   getAll,
+  create,
   sendError
 }
