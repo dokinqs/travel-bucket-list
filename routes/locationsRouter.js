@@ -64,13 +64,13 @@ function destroy(req, res) {
   })
 };
 
-locationsRouter.route('/locations/mylist')
-  .get(locationsController.getApi, locationsViewController.showCountries);
-
 locationsRouter.route('/')
   .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
   // .post(locationsController.create, locationsViewController.sendCreateLocation);
   .post(locationsController.create, locationsViewController.redirectToLocation);
+
+locationsRouter.route('/mylist')
+  .get(locationsController.getApi, locationsViewController.showApiCountries);
 
 // locationsRouter.get('/new', locationsViewController.sendNewLocation);
 locationsRouter.route('/new')

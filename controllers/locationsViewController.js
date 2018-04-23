@@ -1,4 +1,4 @@
-function showCountries(req, res) {
+function showApiCountries(req, res) {
   res.render('locations/mylist', {
     data: res.locals.data
   });
@@ -57,7 +57,7 @@ function destroyLocation(req, res) {
 }
 
 module.exports = {
-  showCountries,
+  showApiCountries,
   sendLocations,
   sendOneLocation,
   sendCreateLocation,

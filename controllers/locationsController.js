@@ -5,7 +5,7 @@ const url = 'http://countryapi.gear.host/v1/Country/getCountries';
 
 function getApi(req, res, next) {
   fetch(url)
-    .then((resp) => resp.json()) 
+    .then((res) => res.json()) 
     .then((data) => {
       console.log(data);
       return data.json();
