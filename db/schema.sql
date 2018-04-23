@@ -1,4 +1,4 @@
-\c locations_db
+-- \c locations_db
 
 DROP TABLE IF EXISTS locations;
 
