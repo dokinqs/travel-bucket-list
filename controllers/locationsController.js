@@ -137,7 +137,7 @@ function destroy(req, res) {
 
 
 module.exports = {
-  getApi,
+  // getApi,
   getAll,
   getOne,
   create,
