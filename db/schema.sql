@@ -13,5 +13,6 @@ CREATE TABLE locations (
 
 CREATE TABLE favs (
   fav_id SERIAL PRIMARY KEY,
+  -- note VARCHAR(100),
   locations_id INT NOT NULL REFERENCES locations(locations_id)
 );

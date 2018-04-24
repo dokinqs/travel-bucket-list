@@ -1,12 +1,12 @@
 const path = require('path');
 // import dependencies
 const express = require('express');
-const fetch = require('node-fetch');
-const request = require('request');
-const requestp = require('request-promise');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+// const fetch = require('node-fetch');
+// const request = require('request');
+// const requestp = require('request-promise');
 // const locationDb = require('./models/location');
 const locationsRouter = require('./routes/locationsRouter');
 const favsRouter = require('./routes/favsRouter');

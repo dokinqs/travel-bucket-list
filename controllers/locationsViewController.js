@@ -58,7 +58,10 @@ function sendNewLocation(req, res) {
 }
 
 function destroyLocation(req, res) {
-  res.redirect('locations/index');
+  // res.redirect('locations/index');
+  res.redirect('locations/index', {
+    locations: res.locals.locations
+  });
 }
 
 module.exports = {

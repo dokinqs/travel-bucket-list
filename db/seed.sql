@@ -3,19 +3,9 @@
 DELETE FROM locations;
 DELETE FROM favs;
 
--- INSERT INTO locations (Name, username)
--- VALUES ('Iceland', 'doge');
-
--- INSERT INTO locations (Name, username)
--- VALUES ('Spain', 'Unknown');
-
--- INSERT INTO locations (Name, username)
--- VALUES ('Japan', 'Karen');
-
 -- INSERT INTO locations (Name, NativeLanguage, CurrencyName)
 
-INSERT INTO locations
-(cname, region, flagpng)
+INSERT INTO locations (cname, region, flagpng)
 VALUES 
 (
 'Aruba',
@@ -119,13 +109,8 @@ VALUES
 )
 ;
 
-
-INSERT INTO favs
-(locations_id)
+INSERT INTO favs (locations_id)
 VALUES (4)
-
-
-
 
 
 

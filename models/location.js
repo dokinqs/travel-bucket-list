@@ -33,7 +33,7 @@ function createLocation(location) {
 function updateLocation(location) {
   const queryPromise = db.one(`
   UPDATE locations
-  SET cname = $/cname/, nativelanguage = $/nativelanguage/, currencyname = $/currencyname/
+  SET cname = $/cname/, region = $/region/
   WHERE locations_id = $/locations_id/
   RETURNING *
   `, location);

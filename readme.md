@@ -22,18 +22,25 @@ D: User can remove a country that they don't want to visit anymore or have visit
 Javascript, PSQL, HTML, CSS
 
 ## API: 
-Google Geolocation API, CountryAPI
+CountryAPI
 
 ## Modules: 
 Express, Nodemon, EJS, Morgan, Body-parser, Pg-promise, Method-override
 
 ## Code snippet:
-
+function destroyLocation(id) {
+  const queryPromise = db.none(`
+  DELETE FROM locations 
+  WHERE locations_id = $1
+  `, id);
+  return queryPromise;
+}   
 
 ## Plan to fix/ features to add:
 log in authorization and authentication
 color code notes by location 
 order notes by rating
+add Google API
 
 ## Instructions for downloading the code and running it on localhost:
 

@@ -1,24 +1,24 @@
 const locationDb = require('../models/location');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
-const url = 'http://countryapi.gear.host/v1/Country/getCountries';
+// const url = 'http://countryapi.gear.host/v1/Country/getCountries';
 
-function getApi(req, res, next) {
-  fetch(url)
-    // .then((res) => res.json()) 
-    .then((data) => {
-      console.log(data);
-      return data.json();
-    })
-    .then(data => {
-      res.locals.data = data.data;
-      next();
-    })
-    .catch((err) => {
-      console.log(error);
-      next(err);
-    });
-}
+// function getApi(req, res, next) {
+//   fetch(url)
+//     // .then((res) => res.json()) 
+//     .then((data) => {
+//       console.log(data);
+//       return data.json();
+//     })
+//     .then(data => {
+//       res.locals.data = data.data;
+//       next();
+//     })
+//     .catch((err) => {
+//       console.log(error);
+//       next(err);
+//     });
+// }
 
 // CREATE
 
