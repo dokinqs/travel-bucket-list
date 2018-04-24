@@ -106,8 +106,7 @@ VALUES
   'Viet Nam',
   'Asia',
   'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/vnm.png'
-)
-;
+);
 
 INSERT INTO favs (locations_id)
 VALUES (4)
