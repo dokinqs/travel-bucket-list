@@ -12,7 +12,7 @@ function createFav(id) {
   console.log(JSON.stringify(id));
   const queryPromise = db.one(`
   INSERT INTO favs (locations_id)
-  VALUES ($1)
+  VALUES ($/locations_id/)
   RETURNING *
   `, id);
   return queryPromise;

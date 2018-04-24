@@ -28,7 +28,8 @@ function create(req, res, next) {
     // res.send('create location');
     locationDb.createLocation(req.body)
     .then(data => {
-      console.log(data);
+      res.locals.data = data;
+      // console.log(data);
       // res.json({
       //   status: 'ok',
       //   quote: data
@@ -98,7 +99,7 @@ function getOne(req, res, next) {
 
 function edit(req, res) {
   locationsDb.getOneLocation(req.params.id)
-    .then(data=> {
+    .then(data => {
       res.locals.location = data;
       next();
     })

@@ -1,6 +1,7 @@
-\c locations_db
+-- \c locations_db
 
 DELETE FROM locations;
+DELETE FROM favs;
 
 -- INSERT INTO locations (Name, username)
 -- VALUES ('Iceland', 'doge');
@@ -17,9 +18,9 @@ INSERT INTO locations
 (cname, region, flagpng)
 VALUES 
 (
-'Afghanistan',
-'Asia',
-'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/afg.png'
+'Aruba',
+'Americas',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/abw.png'
 ),
 (
 'Åland Islands',
@@ -27,16 +28,101 @@ VALUES
 'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/alb.png'
 ),
 (
+'Canada',
+'Americas',
+'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/can.png'
+),
+(
+  'China',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/chn.png'
+),
+(
+  'Costa Rica',
+  'Americas',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/cri.png'
+),
+(
+  'Egypt',
+  'Africa',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/egy.png'
+),
+(
+  'Fiji',
+  'Oceana',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/fji.png'
+),
+(
+  'France',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/fra.png'
+),
+(
+  'Germany',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/deu.png'
+),
+(
+  'Iceland',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/isl.png'
+),
+(
+  'Italy',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/ita.png'
+),
+(
+  'Japan',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/jpn.png'
+),
+(
+  'Korea (Republic of)',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/kor.png'
+),
+(
 'Nepal',
 'Asia',
 'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/npl.png'
-);
-
+),
+(
+  'Russian Federation',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/rus.png'
+),
+(
+  'Singapore',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/sgp.png'
+),
+(
+  'Spain',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/esp.png'
+),
+(
+  'Thailand',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/tha.png'
+),
+(
+  'United Kingdom of Great Britain and Northern Ireland',
+  'Europe',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/gbr.png'
+),
+(
+  'Viet Nam',
+  'Asia',
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/vnm.png'
+)
+;
 
 
 INSERT INTO favs
 (locations_id)
-VALUES (1)
+VALUES (4)
 
 
 

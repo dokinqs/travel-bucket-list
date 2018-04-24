@@ -1,15 +1,15 @@
-function showApiCountries(req, res) {
-  res.render('locations/mylist', {
-    data: res.locals.data
-  });
-}
+// function showApiCountries(req, res) {
+//   res.render('locations/mylist', {
+//     data: res.locals.data
+//   });
+// }
 
 function sendLocations(req, res) {
   // console.log('I send successful responses');
   // res.json({
   //   status: 'ok',
-
   // points to file "index.ejs" inside "views/locations"
+  // res.json(res.locals.locations);
   res.render('locations/index', {
     locations: res.locals.locations
   });
@@ -18,10 +18,7 @@ function sendLocations(req, res) {
 function sendOneLocation(req, res) {
   // res.json({
   //   status: 'ok',
-
-  // "location.ejs" view makes use of the same partial single_location.ejs
-+  // for rendering one location as the index view used to render each location in the list
-+  // of locations that were passed in to locations/index
+  // })
   res.render('locations/location', {
     location: res.locals.location
   });
@@ -33,8 +30,8 @@ function sendCreateLocation(req, res) {
   //   status: 'ok',
   //   location: res.locals.newLocation
   // });
-  const location = res.locals.newLocation
-  res.redirect(`locations/${location.id}`);
+  const location = res.locals.newLocation;
+  res.redirect(`locations/${location.locations_id}`);
 }
 
 function editLocation(req, res) {
@@ -45,7 +42,15 @@ function editLocation(req, res) {
 }
 
 function redirectToLocation(req, res) {
-  console.log('redirecting to /locations/' + res.locals.newLocation.locations_id);
+  // console.log('redirecting to /locations/' + res.locals.locations_id);
+  res.json(res.locals);
+ 
+  // res.render('locations', {
+  //   locations: res.locals.locations_id
+  // });
+  res.render('locations', {
+    locations: res.locals.locations_id
+  });
 }
 
 function sendNewLocation(req, res) {
@@ -57,7 +62,7 @@ function destroyLocation(req, res) {
 }
 
 module.exports = {
-  showApiCountries,
+  // showApiCountries,
   sendLocations,
   sendOneLocation,
   sendCreateLocation,

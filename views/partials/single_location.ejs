@@ -3,18 +3,21 @@
   <img src="<%=location.flagpng%>" width="100" alt="<%=location.cname%>" /><br>
   <!-- <div><%= JSON.stringify(location) %></div> -->
   <div class="location-cname">
-    Country: <%= location.cname %>
+    <%= location.cname %>
   </div>
   <p>Region: <%= location.region %></p>
   <!-- <p>Currency: <%= location.currencyname %></p> -->
 
   <form action="/favs" class='post' method="POST">
-    <button class="edit" type="submit" value="<%=location.locations_id %>">
+    <button class="edit" type="submit" name="button" value="<%= location.locations_id %>">
       Add to Favorites</button>
+    <!-- <input class="edit" type="button" value="<%= location.locations_id %>" placeholder="
+    Add to Favorites" /> -->
+<!-- 
+    <input type="button" value="aaahhh" placeholder="adddddd"/>
+    <input type="submit" /> -->
+
   </form>
-
-  <br>
-
   <form action="/locations/<%= location.locations_id %>?_method=DELETE" method="POST">
     <button class="delete" type="submit" name="button">Delete location</button>
   </form>

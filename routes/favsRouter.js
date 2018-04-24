@@ -16,6 +16,15 @@ const favDb = require('../models/fav');
 //   // .put(favsController.update)
 //   .delete(favsController.destroy, favsViewController.destroyLocation);
 
+
+function sendError(err, req, res, next) {
+  console.log('I send errors');
+  res.status(500).json({
+    status: 'error',
+    message: err.message
+  })
+}
+
 favsRouter.route('/')
   .get(favsController.getAll, favsViewController.showFav)
   // sendError

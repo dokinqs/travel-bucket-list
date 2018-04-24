@@ -8,6 +8,19 @@ html {
   /* width: 100%; */
 }
 
+body {
+  font-size: 34px;
+  margin: 0;
+}
+
+main {
+  flex-direction: column;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  height: 100vh;
+}
+
 h1 {
   color: #000;
   font-size: 5vw;
@@ -18,17 +31,13 @@ h1 {
   opacity: .8;
 }
 
-body {
-  font-size: 12px;
+h2 {
   margin: 0;
 }
 
-main {
-  flex-direction: column;
-  display: flex;
-  /* justify-content: space-around; */
-  align-items: center;
-  height: 100vh;
+p {
+  margin: 0;
+  font-size: 16px;
 }
 
 .location-cname {
@@ -46,10 +55,6 @@ main {
 
 .single-location {
   text-align: center;
-}
-
-.single-location h2 {
-  margin-bottom: 20px;
 }
 
 .single-location .location-link {
@@ -88,8 +93,8 @@ button {
   font-size: 30px;
   border-radius: 5%;
   border: 10px double black;
-  padding: 20px;
-  margin: 10px;
+  padding: 10px;
+  margin: 2px;
   background: #a5adce;
   font-family: 'Karla';
   opacity: 1;
@@ -99,13 +104,13 @@ button.delete {
   background: #f5aaaa;
   font-size: 10px;
   padding: 5px;
+  margin-top: 0;
 }
 
 button.edit {
   background: #c2e6c2;
   font-size: 10px;
   padding: 5px;
-}
 }
 
 button.add-country {
@@ -163,6 +168,9 @@ form.create-location {
   background: darkgray;
   padding: 25px;
   border-radius: 15px;
+  box-shadow: 5px 15px 20px 15px #30314d;
+  margin-top: 50px;
+  opacity: .9;
 }
 
 form.create-location button {
@@ -172,12 +180,6 @@ form.create-location button {
 
 .location-container {
   background: linear-gradient(120deg, #b1c9bb 0%, #545692 100%);
+  height: 400px;
+  width: 400px;
 }
-
-/* .location-container:nth-child(2n) h2 {
-  background: linear-gradient(120deg, #555 0%, #adcddc 100%);
-} */
-
-/* .location-container:nth-child(3n) h2 {
-  background: linear-gradient(120deg, #f2c7ae 0%, #de7687 100%);
-} */
