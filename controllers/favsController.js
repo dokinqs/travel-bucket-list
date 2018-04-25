@@ -1,7 +1,7 @@
 const favDb = require('../models/fav');
 
 function getAll(req, res, next) {
-  favDb.getAll()
+  favDb.getAllFavs()
   .then((favorites) => {
     res.locals.favorites = favorites;
     next();
@@ -10,9 +10,9 @@ function getAll(req, res, next) {
 }
 
 function create(req, res, next) {
-  // console.log('req ' + req);
-  // console.log('params loc id ' + req.params.locations_id);
-  // console.log('params id ' + req.params.id);
+  console.log('req ' + req);
+  console.log('params loc id ' + req.params.locations_id);
+  console.log('params id ' + req.params.id);
   favDb.createFav(req.body)
   .then((favorite) => {
     res.locals.favorite = favorite;

@@ -1,11 +1,11 @@
 <% include ../partials/boilerplate %>
-<h1>ALL FAVS</h1>
-<div class="favs-list">
+<h1>FAVORITES</h1>
+<div class="locations-list">
 
   <% favorites.forEach((favorite) => { %> 
-  <a href="/favs/<%= favorite.locations_id %>">
-    <% include ../partials/single_favorite %>
-  </a>
+    <a href="/favs/<%= favorite.locations_id %>">
+      <% include ../partials/single_favorite %>
+    </a>
   <% }) %>
   
 </div>

@@ -1,6 +1,6 @@
 const db = require('../config/connection');
 
-function getAll() {
+function getAllFavs() {
   const queryPromise = db.many(`
   SELECT * FROM favs
   JOIN locations ON locations.locations_id = favs.locations_id
@@ -18,9 +18,7 @@ function createFav(id) {
   return queryPromise;
 }
 
-
-
 module.exports = {
-  getAll,
+  getAllFavs,
   createFav
 };

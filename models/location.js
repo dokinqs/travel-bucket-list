@@ -1,7 +1,5 @@
 const db = require('../config/connection');
 
-// SELECT locations.cname, locations.nativelanguage, locations.currencyname FROM locations
-
 function getAllLocations() {
   const queryPromise = db.any(`
   SELECT * FROM locations
@@ -17,11 +15,7 @@ function getOneLocation(id) {
   return queryPromise;
 }
 
-// INSERT INTO locations (cname, nativelanguage, currencyname)
-// VALUES ($/cname/, $/nativelanguage/, $/currencyname/)
-
 function createLocation(location) {
-  console.log(JSON.stringify(location));
   const queryPromise = db.one(`
   INSERT INTO locations (cname)
   VALUES ($/cname/)
@@ -33,7 +27,7 @@ function createLocation(location) {
 function updateLocation(location) {
   const queryPromise = db.one(`
   UPDATE locations
-  SET cname = $/cname/, region = $/region/
+  SET cname = $/cname/
   WHERE locations_id = $/locations_id/
   RETURNING *
   `, location);
@@ -48,8 +42,6 @@ function destroyLocation(id) {
   return queryPromise;
 }   
 
-
-
 module.exports = {
   getAllLocations,
   getOneLocation,
@@ -57,4 +49,3 @@ module.exports = {
   updateLocation,
   destroyLocation
 }
-

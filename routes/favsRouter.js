@@ -29,8 +29,7 @@ favsRouter.route('/')
   .get(favsController.getAll, favsViewController.showFav)
   // sendError
 
-  .post(favsController.create);
-  // , favsViewController.sendCreateFav
+  .post(favsController.create, favsViewController.sendCreateFav);
   // .post(favsController.create, favsViewController.redirectToLocation);
 
 module.exports = favsRouter;

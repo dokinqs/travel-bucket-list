@@ -1,18 +1,15 @@
 <div class="location-container">
-    <h2># <%= favorite.locations_id %></h2>
-    <!-- <div><%= JSON.stringify(favorite) %></div> -->
+  <!-- <h2># <%= favorite.locations_id %></h2> -->
+  <!-- <div><%= JSON.stringify(favorite) %></div> -->
+  <div class="location-cname"><%= favorite.cname %></div>
+  <br/>
+  <textarea rows="2" cols="20"><%= favorite.note %></textarea>
 
-    <div class="location-cname">
-        Country: <%= favorite.cname %>
-      </div>
-      
-    <form action="/favs/<%=favorite.locations_id%>/edit" class='put' method="GET">
-      <button class="edit" type="submit" value="Edit">
-        Edit Favorite</button>
-    </form>
-    <br>
-  
-    <form action="/favs/<%= favorite.locations_id %>?_method=DELETE" method="POST">
-      <button class="delete" type="submit" name="button">Delete favorite</button>
-    </form>
-  </div>
+  <form action="/favs/<%=favorite.locations_id%>/edit" class='put' method="GET">
+    <button class="edit" type="submit" value="Edit">Edit Favorite</button>
+  </form>
+
+  <form action="/favs/<%= favorite.locations_id %>?_method=DELETE" method="POST">
+    <button class="delete" type="submit" name="button">Delete favorite</button>
+  </form>
+</div>

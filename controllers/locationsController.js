@@ -23,28 +23,16 @@ const locationDb = require('../models/location');
 // CREATE
 
 function create(req, res, next) {
-  // app.post('/locations', (req, res) => {
     console.log(req.body);
-    // res.send('create location');
     locationDb.createLocation(req.body)
     .then(data => {
       res.locals.data = data;
-      // console.log(data);
-      // res.json({
-      //   status: 'ok',
-      //   quote: data
-      // })
       next();
     })
     .catch(err => {
-      // res.status(500).json({
-      //   status: 'error',
-      //   message: err.message
-      // })
       next(err);
     })
 }
-
 
 // READ
 
@@ -52,45 +40,26 @@ function getAll(req, res, next) {
   console.log('About to query the DB');
   locationDb.getAllLocations()
   .then(data => {
-    // console.log(data);
-    // res.json({
-    //   quotes: data,
-    //   status: 'ok'
-    // })
     console.log('Queried the DB and got ' + data.length + ' results');
     res.locals.locations = data;
     next();
   })
   .catch(err => {
-    // res.status(500).json({
-    //   status: 'error',
-    //   message: err.message
-    // });
     next(err);
   })
 }
 
-
 function getOne(req, res, next) {
 // app.get('/location/:id', (req, res) => {
-  console.log(req.params); // get doesn't use body-parser
+  console.log(req.params); 
   // res.send(`get location with id ${req.params.id}`);
   locationDb.getOneLocation(req.params.id)
   .then(data => {
     console.log(data);
-    // res.json({
-    //   locations: data,
-    //   status: 'ok'
-    // })
     res.locals.location = data;
     next();
   })
   .catch(err => {
-    // console.log(err.message);
-    // res.status(500).json({
-    //   status: 'error',
-    //   message: err.message
-    // })
     next(err);
   })
 }
@@ -103,8 +72,8 @@ function edit(req, res) {
       res.locals.location = data;
       next();
     })
-    .catch(err=> {
-      err: err.message
+    .catch(err => {
+      next(err);
     })
 }
 
@@ -112,10 +81,10 @@ function update(req, res, next) {
   req.body.id = req.params.id;
   locationsDb.updateLocation(req.body)
     .then(data => {
-      res.redirect(`/locations/${req.body.id}`)
+      res.redirect(`/locations/${req.body.id}`);
     })
     .catch(err=> {
-      err:err
+      next(err);
     })
 }
 
@@ -134,7 +103,6 @@ function destroy(req, res) {
       })
     })
 }
-
 
 module.exports = {
   // getApi,
