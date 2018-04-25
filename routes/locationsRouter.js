@@ -13,18 +13,16 @@ function sendError(err, req, res, next) {
 }
    
 locationsRouter.route('/')
-  .get(locationsController.getAll, locationsViewController.sendLocations)
-  // , sendError
-  // locationsViewController.sendCreateLocation);
-  .post(locationsController.create, locationsViewController.redirectToLocation);
+  .get(locationsController.getAll, locationsViewController.sendLocations, sendError)
+  .post(locationsController.create, locationsViewController.sendCreateLocation);
 
 locationsRouter.route('/new')
-  .get(locationsViewController.sendNewLocation);
+  .get(locationsController.getAll, locationsViewController.sendNewLocation);
 
 locationsRouter.route('/:id')
   .get(locationsController.getOne, locationsViewController.sendOneLocation)
   // , sendError
-  // .put(locationsController.update)
+  .put(locationsController.update)
   .delete(locationsController.destroy, locationsViewController.destroyLocation);
 
 // locationsRouter.route('/mylist')

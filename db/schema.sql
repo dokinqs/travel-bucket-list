@@ -8,11 +8,11 @@ CREATE TABLE locations (
   cname VARCHAR(80),
   region VARCHAR(80),
   currencyname VARCHAR(80),
-  flagpng VARCHAR(200)
+  flag VARCHAR(200)
 );
 
 CREATE TABLE favs (
-  fav_id SERIAL PRIMARY KEY,
+  favs_id SERIAL PRIMARY KEY,
   note VARCHAR(80),
   locations_id INT NOT NULL REFERENCES locations(locations_id)
 );

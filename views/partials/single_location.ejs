@@ -7,13 +7,13 @@
   <% } %>
  
   <!-- <h2># <%= location.locations_id %></h2> -->
-  <img src="<%=location.flagpng%>" max-width="100" height="70" alt="<%=location.cname%>" /><br>
+  <img src="<%=location.flag%>" max-width="100" height="70" alt="<%= location.cname %>" /><br>
 
   <div class="location-cname"><%= location.cname %></div>
   <p><%= location.region %></p>
   <p><%= location.currencyname %></p>
 
-  <form action="/favs" class="put" method="POST">
+  <form action="/favs/<%=location.locations_id%>" method="POST">
     <button class="edit" type="submit" name="button" value="<%= location.locations_id %>">
       Add to Favorites</button>
   </form>

@@ -26,7 +26,7 @@ function create(req, res, next) {
     console.log(req.body);
     locationDb.createLocation(req.body)
     .then(data => {
-      res.locals.data = data;
+      res.locals.location = data;
       next();
     })
     .catch(err => {
@@ -50,12 +50,8 @@ function getAll(req, res, next) {
 }
 
 function getOne(req, res, next) {
-// app.get('/location/:id', (req, res) => {
-  console.log(req.params); 
-  // res.send(`get location with id ${req.params.id}`);
   locationDb.getOneLocation(req.params.id)
   .then(data => {
-    console.log(data);
     res.locals.location = data;
     next();
   })
@@ -66,7 +62,7 @@ function getOne(req, res, next) {
 
 // UPDATE
 
-function edit(req, res) {
+function edit(req, res, next) {
   locationsDb.getOneLocation(req.params.id)
     .then(data => {
       res.locals.location = data;

@@ -4,27 +4,26 @@ DELETE FROM locations;
 DELETE FROM favs;
 
 -- http://countryapi.gear.host/v1/Country/getCountries
--- CurrencyName
 
-INSERT INTO locations (cname, region, currencyname, flagpng)
+INSERT INTO locations (cname, region, currencyname, flag)
 VALUES 
 (
   'Aruba',
   'Americas',
   'Aruban florin',
-  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/abw.png'
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/abw.svg'
 ),
 (
   'Åland Islands',
   'Europe',
   'Euro',
-  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/alb.png'
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/alb.svg'
 ),
 (
   'Canada',
   'Americas',
   'Canadian dollar',
-  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/can.png'
+  'https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/can.svg'
 ),
 (
   'China',
