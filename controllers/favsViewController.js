@@ -12,7 +12,14 @@ function sendCreateFav(req, res) {
   res.redirect(`favorites/${favorite.favs_id}`);
 }
 
+function sendOneFav(req, res) {
+  res.render('favorites/favorite', {
+    location: res.locals.location
+  });
+}
+
 module.exports = {
   showFav,
-  sendCreateFav
+  sendCreateFav,
+  sendOneFav
 }

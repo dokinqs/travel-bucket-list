@@ -13,17 +13,17 @@ function sendError(err, req, res, next) {
 }
 
 // favsRouter.route('/new')
-//   .get(favsViewController.sendNewLocation);
-
-// favsRouter.route('/:id')
-//   .get(favsController.getOne, favsViewController.sendOneLocation)
-//   // .put(favsController.update)
-//   .delete(favsController.destroy, favsViewController.destroyLocation);
+//   .get(favsViewController.sendNewFav);
 
 favsRouter.route('/')
   .get(favsController.getAll, favsViewController.showFav, sendError)
   .post(favsController.create, favsViewController.sendCreateFav);
   //  redirectToLocation);
+
+  favsRouter.route('/:id')
+  .get(favsController.getOne, favsViewController.sendOneFav);
+//   // .put(favsController.update)
+//   .delete(favsController.destroy, favsViewController.destroyFav);
 
 module.exports = favsRouter;
 

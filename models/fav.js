@@ -8,6 +8,14 @@ function getAllFavs() {
   return queryPromise;
 }
 
+function getOneFav(id) {
+  const queryPromise = db.one(`
+  SELECT * FROM favs
+  WHERE favs_id = $1
+  `, id)
+  return queryPromise;
+}
+
 function createFav(id) {
   console.log(JSON.stringify(id));
   const queryPromise = db.one(`
@@ -20,5 +28,6 @@ function createFav(id) {
 
 module.exports = {
   getAllFavs,
+  getOneFav,
   createFav
 };
