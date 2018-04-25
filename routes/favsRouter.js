@@ -4,19 +4,6 @@ const favsViewController = require('../controllers/favsViewController');
 
 const favDb = require('../models/fav');
 
-// locationsRouter.route('/mylist')
-//   .get(locationsController.getApi, locationsViewController.showApiCountries);
-
-// locationsRouter.get('/new', locationsViewController.sendNewLocation);
-// favsRouter.route('/new')
-//   .get(favsViewController.sendNewLocation);
-
-// favsRouter.route('/:id')
-//   .get(favsController.getOne, favsViewController.sendOneLocation, sendError)
-//   // .put(favsController.update)
-//   .delete(favsController.destroy, favsViewController.destroyLocation);
-
-
 function sendError(err, req, res, next) {
   console.log('I send errors');
   res.status(500).json({
@@ -25,12 +12,18 @@ function sendError(err, req, res, next) {
   })
 }
 
-favsRouter.route('/')
-  .get(favsController.getAll, favsViewController.showFav)
-  // sendError
+// favsRouter.route('/new')
+//   .get(favsViewController.sendNewLocation);
 
+// favsRouter.route('/:id')
+//   .get(favsController.getOne, favsViewController.sendOneLocation)
+//   // .put(favsController.update)
+//   .delete(favsController.destroy, favsViewController.destroyLocation);
+
+favsRouter.route('/')
+  .get(favsController.getAll, favsViewController.showFav, sendError)
   .post(favsController.create, favsViewController.sendCreateFav);
-  // .post(favsController.create, favsViewController.redirectToLocation);
+  //  redirectToLocation);
 
 module.exports = favsRouter;
 

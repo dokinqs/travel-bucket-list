@@ -4,6 +4,13 @@
 //   });
 // }
 
+// function redirectToLocation(req, res) {
+//   console.log('redirecting to /locations/' + res.locals.locations_id);
+//   res.render('locations/index', {
+//     locations: res.locals.locations
+//   });
+// }
+
 function sendLocations(req, res) {
   res.render('locations/index', {
     locations: res.locals.locations
@@ -34,24 +41,17 @@ function editLocation(req, res) {
   })
 }
 
-// function redirectToLocation(req, res) {
-//   console.log('redirecting to /locations/' + res.locals.locations_id);
-//   res.render('locations/index', {
-//     locations: res.locals.locations
-//   });
-// }
-
 function destroyLocation(req, res) {
   res.redirect('locations/index');
 }
 
 module.exports = {
   // showApiCountries,
+  // redirectToLocation,
   sendLocations,
   sendOneLocation,
   sendCreateLocation,
   sendNewLocation,
   editLocation,
-  // redirectToLocation,
   destroyLocation
 };

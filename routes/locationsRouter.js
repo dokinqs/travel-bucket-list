@@ -21,9 +21,11 @@ locationsRouter.route('/new')
 
 locationsRouter.route('/:id')
   .get(locationsController.getOne, locationsViewController.sendOneLocation)
-  // , sendError
   .put(locationsController.update)
   .delete(locationsController.destroy, locationsViewController.destroyLocation);
+
+locationsRouter.route('/:id/edit')
+  .get(locationsController.getOne, locationsController.getAll, locationsViewController.editLocation);
 
 // locationsRouter.route('/mylist')
 //   .get(locationsController.getApi, locationsViewController.showApiCountries);

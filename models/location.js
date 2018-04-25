@@ -23,7 +23,7 @@ function createLocation(location) {
   `, location);
   return queryPromise;
 }
-
+// 
 function updateLocation(location) {
   const queryPromise = db.one(`
   UPDATE locations

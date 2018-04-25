@@ -14,7 +14,7 @@ function create(req, res, next) {
   console.log('params loc id ' + req.params.locations_id);
   console.log('params id ' + req.params.id);
   favDb.createFav(req.body)
-  .then((favorite) => {
+  .then(favorite => {
     res.locals.favorite = favorite;
     next();
   })

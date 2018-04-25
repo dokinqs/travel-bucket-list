@@ -37,10 +37,9 @@ function create(req, res, next) {
 // READ
 
 function getAll(req, res, next) {
-  console.log('About to query the DB');
   locationDb.getAllLocations()
   .then(data => {
-    console.log('Queried the DB and got ' + data.length + ' results');
+    console.log('Queried DB, got ' + data.length + ' results');
     res.locals.locations = data;
     next();
   })

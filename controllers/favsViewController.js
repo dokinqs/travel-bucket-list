@@ -3,11 +3,13 @@ function showFav(req, res) {
     favorite: res.locals.favorite
   });
 }
-
+// 
 function sendCreateFav(req, res) {
-  res.render('favorites/index', {
-    favorites: res.locals.favorites
-  });
+  favorite = res.locals.favorite;
+  // res.render('favorites/index', {
+  //   favorite: res.locals.favorite
+  // });
+  res.redirect(`favorites/${favorite.favs_id}`);
 }
 
 module.exports = {

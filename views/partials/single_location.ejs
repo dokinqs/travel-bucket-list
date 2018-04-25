@@ -7,10 +7,10 @@
   <% } %>
  
   <!-- <h2># <%= location.locations_id %></h2> -->
-  <img src="<%=location.flag%>" max-width="100" height="70" alt="<%= location.cname %>" /><br>
+  <img src="<%=location.flag%>" max-width="100" height="70"%>" /><br>
 
   <div class="location-cname"><%= location.cname %></div>
-  <p><%= location.region %></p>
+  <p><i><%= location.region %></i></p>
   <p><%= location.currencyname %></p>
 
   <form action="/favs/<%=location.locations_id%>" method="POST">
