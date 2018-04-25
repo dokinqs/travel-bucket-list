@@ -5,7 +5,6 @@
 // }
 
 // function redirectToLocation(req, res) {
-//   console.log('redirecting to /locations/' + res.locals.locations_id);
 //   res.render('locations/index', {
 //     locations: res.locals.locations
 //   });

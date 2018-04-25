@@ -131,11 +131,11 @@ VALUES
 INSERT INTO favs (note, locations_id)
 VALUES 
 (
-  '10 year visa, cheap bubble tea',
+  'Notes',
   4
 ),
 (
-  'Unique flag, climb Mt. Everest',
+  'Mt. Everest',
   13
 ),
 (
@@ -143,6 +143,6 @@ VALUES
   16
 ),
 (
-  'See Aurora Borealis in Reykjavík (November)',
+  'Aurora Borealis',
   10
 );

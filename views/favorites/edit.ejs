@@ -1,0 +1,18 @@
+<% include ../partials/boilerplate %>
+<div class="form">
+  <div class="add">
+  
+  <form action="/favs/<%= favorite.favs_id %>?_method=PUT" method="POST">
+    <input type="text" name="note" value="<%= favorite.note %>" /><br>
+    <select name="locations_id">
+      <% favorites.forEach((favorite) => { %>
+        <option value="<%= favorite.favs_id %>"><%= favorite.note %></option>
+      <% }) %>
+    </select> <br>
+    <input type="submit" value="Add favorite" />
+  </form>
+
+  </div>
+<!-- <a href="/favorite"> Back to Favorites </a> -->
+</div>
+<% include ../../partials/end %>

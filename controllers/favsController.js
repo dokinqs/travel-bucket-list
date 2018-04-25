@@ -9,7 +9,6 @@ function getAll(req, res, next) {
   .catch(err => next(err));
 }
 
-
 function getOne(req, res, next) {
   favDb.getOneFav(req.params.id)
   .then(data => {
@@ -41,9 +40,36 @@ function sendError(err, req, res, next) {
   })
 }
 
+function update(req, res, next) {
+  req.body.id = req.params.id;
+  favDb.updateFav(req.body)
+    .then(data => {
+      res.redirect(`/favs/${req.body.id}`);
+    })
+    .catch(err => {
+      next(err);
+    })
+}
+
+function destroy(req, res) {
+  favDb.destroyFav(req.params.id)
+    .then(() => {
+      res.redirect('/favs');
+    })
+    .catch(err => {
+      // next(err);
+      res.status(500).json({
+        status: 'error',
+        message: err.message
+      })
+    })
+}
+
 module.exports = {
   getAll,
   getOne,
   create,
-  sendError
+  sendError,
+  update,
+  destroy
 }

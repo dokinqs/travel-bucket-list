@@ -13,7 +13,7 @@
   <p><i><%= location.region %></i></p>
   <p><%= location.currencyname %></p>
 
-  <form action="/favs/<%=location.locations_id%>" method="POST">
+  <form action="/favs/<%=location.locations_id + 4 %>" method="POST">
     <button class="edit" type="submit" name="button" value="<%= location.locations_id %>">
       Add to Favorites</button>
   </form>

@@ -62,7 +62,7 @@ function getOne(req, res, next) {
 // UPDATE
 
 function edit(req, res, next) {
-  locationsDb.getOneLocation(req.params.id)
+  locationDb.getOneLocation(req.params.id)
     .then(data => {
       res.locals.location = data;
       next();
@@ -74,7 +74,7 @@ function edit(req, res, next) {
 
 function update(req, res, next) {
   req.body.id = req.params.id;
-  locationsDb.updateLocation(req.body)
+  locationDb.updateLocation(req.body)
     .then(data => {
       res.redirect(`/locations/${req.body.id}`);
     })

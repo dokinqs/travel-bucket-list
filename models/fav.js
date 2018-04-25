@@ -26,8 +26,28 @@ function createFav(id) {
   return queryPromise;
 }
 
+function updateFav(favorite) {
+  const queryPromise = db.one(`
+  UPDATE favs
+  SET note = $/note/
+  WHERE favs.favs_id = $/favs_id/
+  RETURNING *
+  `, favorite);
+  return queryPromise;
+}
+
+function destroyFav(id) {
+  const queryPromise = db.none(`
+  DELETE FROM favs 
+  WHERE favs_id = $1
+  `, id);
+  return queryPromise;
+}   
+
 module.exports = {
   getAllFavs,
   getOneFav,
-  createFav
+  createFav,
+  updateFav,
+  destroyFav
 };

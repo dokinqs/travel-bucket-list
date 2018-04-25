@@ -3,12 +3,24 @@
   <!-- <div><%= JSON.stringify(favorite) %></div> -->
   <div class="location-cname"><%= favorite.cname %></div>
   <br/>
-  <textarea rows="2" cols="20"><%= favorite.note %></textarea>
 
-  <form action="/favs/<%= favorite.favs_id %>/edit" class='put' method="GET">
-    <button class="edit" type="submit" value="Edit">Edit Favorite</button>
+  <form action="/favs/<%= favorite.favs_id %>?_method=PUT" method="POST">
+    <input type="text" name="note" rows="2" cols="30" value="<%= favorite.note %>" /><br>
+
+    <!-- <select name="locations_id">
+      <% favorites.forEach((favorite) => { %>
+        <option value="<%= favorite.favs_id %>"><%= favorite.note %></option>
+      <% }) %>
+    </select> <br> -->
+    
+    <input type="submit" value="Edit Note" />
   </form>
 
+  <!-- <form action="/favs/<%= favorite.favs_id %>/edit" class='put' method="GET"> -->
+    <!-- <form action="/favs/<%= favorite.favs_id %>?_method=PUT" method="GET">
+    <button class="edit" type="submit" value="Edit">Edit Favorite</button>
+  </form> -->
+<br>
   <form action="/favs/<%= favorite.favs_id %>?_method=DELETE" method="POST">
     <button class="delete" type="submit" name="button">Delete favorite</button>
   </form>

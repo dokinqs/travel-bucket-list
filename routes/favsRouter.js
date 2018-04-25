@@ -21,9 +21,12 @@ favsRouter.route('/')
   //  redirectToLocation);
 
   favsRouter.route('/:id')
-  .get(favsController.getOne, favsViewController.sendOneFav);
-//   // .put(favsController.update)
-//   .delete(favsController.destroy, favsViewController.destroyFav);
+  .get(favsController.getOne, favsViewController.sendOneFav)
+  .put(favsController.update)
+  .delete(favsController.destroy, favsViewController.destroyFav);
+
+favsRouter.route('/:id/edit')
+  .get(favsController.getOne, favsController.getAll, favsViewController.editFav);
 
 module.exports = favsRouter;
 

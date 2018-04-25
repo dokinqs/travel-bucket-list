@@ -14,12 +14,25 @@ function sendCreateFav(req, res) {
 
 function sendOneFav(req, res) {
   res.render('favorites/favorite', {
-    location: res.locals.location
+    favorite: res.locals.favorite
   });
+}
+
+function editFav(req, res) {
+  favorite = res.locals.favorite;
+  res.render(`favorites/edit`, {
+    favorite: res.locals.favorite
+  })
+}
+
+function destroyFav(req, res) {
+  res.redirect('favorites/index');
 }
 
 module.exports = {
   showFav,
   sendCreateFav,
-  sendOneFav
+  sendOneFav,
+  editFav,
+  destroyFav
 }
