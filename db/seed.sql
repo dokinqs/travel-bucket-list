@@ -1,4 +1,4 @@
--- \c locations_db
+\c locations_db
 
 DELETE FROM locations;
 DELETE FROM favs;
