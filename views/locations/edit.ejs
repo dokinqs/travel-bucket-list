@@ -3,16 +3,19 @@
   <div class="add">
   
   <form action="/locations/<%= location.locations_id %>?_method=PUT" method="POST">
-    <input type="text" name="cname" value="<%= location.cname %>" /><br>
+    Country 
     <select name="locations_id">
       <% locations.forEach((location) => { %>
         <option value="<%= location.locations_id %>"><%= location.cname %></option>
       <% }) %>
     </select> <br>
-    <input type="submit" value="Add country" />
+    Edit Country Name 
+    <input type="text" name="cname" value="<%= location.cname %>" /><br>
+
+    <input type="submit" value="Add edited country with new name" />
   </form>
 
   </div>
-<a href="/location"> Back to Locations </a>
+<a href="/locations"> Back to Locations </a>
 </div>
-<% include ../../partials/end %>
+<% include ../partials/end %>

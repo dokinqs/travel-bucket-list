@@ -1,14 +1,8 @@
-// function showApiCountries(req, res) {
-//   res.render('locations/mylist', {
-//     data: res.locals.data
-//   });
-// }
-
-// function redirectToLocation(req, res) {
-//   res.render('locations/index', {
-//     locations: res.locals.locations
-//   });
-// }
+function showApiCountries(req, res) {
+  res.render('locations/mylist', {
+    data: res.locals.data
+  });
+}
 
 function sendLocations(req, res) {
   res.render('locations/index', {
@@ -45,8 +39,7 @@ function destroyLocation(req, res) {
 }
 
 module.exports = {
-  // showApiCountries,
-  // redirectToLocation,
+  showApiCountries,
   sendLocations,
   sendOneLocation,
   sendCreateLocation,

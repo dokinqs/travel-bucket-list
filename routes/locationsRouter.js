@@ -27,7 +27,7 @@ locationsRouter.route('/:id')
 locationsRouter.route('/:id/edit')
   .get(locationsController.getOne, locationsController.getAll, locationsViewController.editLocation);
 
-// locationsRouter.route('/mylist')
-//   .get(locationsController.getApi, locationsViewController.showApiCountries);
+locationsRouter.route('/mylist')
+  .get(locationsController.getApi, locationsViewController.showApiCountries);
 
 module.exports = locationsRouter;

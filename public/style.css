@@ -56,7 +56,7 @@ p.quote {
 }
 
 nav {
-  padding: 5px;
+  padding: 2px;
   font-weight: bold;
   color: white;
   font-family: 'Lato', sans-serif;
@@ -73,7 +73,7 @@ nav ul {
   padding: 0;
 }
 nav a {
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 form.create-location {
@@ -108,7 +108,7 @@ form.create-location button {
   background: #cde1e9;
   padding: 10px 15px;
   margin: 0 auto;
-  height: 310px;
+  height: 370px;
   width: 300px;
   box-shadow: 5px 5px 20px 10px#627180;
   box-sizing: border-box;
@@ -170,8 +170,13 @@ button.add-location {
   margin-top: 60px;
   font-weight: bold;
 }
-button.edit {
+button.add-fav {
   background: #e2f0e2;
+  font-size: 10px;
+  padding: 5px;
+}
+button.edit {
+  background: #f6f5dc;
   font-size: 10px;
   padding: 5px;
 }

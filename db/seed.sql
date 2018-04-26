@@ -3,8 +3,6 @@
 DELETE FROM locations;
 DELETE FROM favs;
 
--- http://countryapi.gear.host/v1/Country/getCountries
-
 INSERT INTO locations (cname, region, currencyname, flag)
 VALUES 
 (
