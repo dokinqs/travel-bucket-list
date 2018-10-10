@@ -19,13 +19,15 @@
   },
   "homepage": "https://github.com/dokinqs/travel-bucket-list#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "cryptiles": "^4.1.2",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
     "node-fetch": "^2.1.2",
-    "nodemon": "^1.17.3",
+    "nodemon": "^1.18.4",
     "pg-promise": "^8.3.2",
     "request": "^2.85.0",
     "request-promise": "^4.2.2"

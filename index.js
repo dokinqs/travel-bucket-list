@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 // const request = require('request');
 // const requestp = require('request-promise');
 // const locationDb = require('./models/location');
+// const authRouter = require('./routes/authRouter');
 const locationsRouter = require('./routes/locationsRouter');
 const favsRouter = require('./routes/favsRouter');
 
@@ -74,6 +75,7 @@ app.get('/', (req, res) => {
 
 app.use('/locations', locationsRouter);
 app.use('/favs', favsRouter);
+// app.use('/auth', authRouter);
 
 // listen on port
 app.listen(PORT, () => {

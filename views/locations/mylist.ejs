@@ -1,5 +1,7 @@
 <% include ../partials/boilerplate %>
 
-<p><%= data %></p>
+<%= data.forEach(x => { %>
+  <p><%= x %></p>
+<% }) <%>
 
 <% include ../partials/end %>

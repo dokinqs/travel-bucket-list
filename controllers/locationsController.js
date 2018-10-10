@@ -8,7 +8,7 @@ function getApi(req, res, next) {
     .then((res) => res.json())
     .then(data => {
       console.log(data.results);
-      res.locals.data = data.data;
+      res.locals.data = data;
       next();
     })
     .catch((err) => {

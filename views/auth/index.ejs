@@ -1,0 +1,31 @@
+<!-- Step 0
+AuthRouter
+Welcome view you can render when navigating to the / path.
+
+Step 1
+Welcome screen. 
+AuthRouter exposes both /login and /register routes for GET and POST:
+set up a login page by adding GET route for /register, 
+'register' view, 
+import AuthRouter into server.js (require) and mount it to the app. (use)
+form for username and password.
+
+Step 2
+POST handler for /users, and have the form POST to the /users route. 
+build the User model that can handle create, as well as the DB schema + seed.sql. 
+include this in the AuthRouter or build a separate UserRouter to handle this. 
+so include the controller + viewController in the appropriate router and make sure you can create a user through the register view. 
+install/import bcrypt and hash the user's password into a password_digest.
+
+Step 3
+Install express-session. don't have to use a .env file, can just hardcode the Secret stuff when setting up express-session. 
+return a cookie from the registration route, and built out an analogous /login route: use bcrypt.hashSync to compare the incoming passwocrd with the password digest. 
+can attach encoded data into a cookie using req.session in a middleware function, 
+and then check it later with the same req.session.<prop> in a middleware function.
+
+should be able to register, validate a user is in the db, and then log in again (incognito).
+
+Step 4
+Build out an AuthService that can restrict particular routes from public users.
+a simple middleware that checks for a particular piece of data on req.session is pretty much all you need to do. 
+passing anything to next will yield an error -->
