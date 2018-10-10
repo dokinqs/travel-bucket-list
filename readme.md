@@ -29,21 +29,23 @@ CountryAPI
 Express, Nodemon, EJS, Morgan, Body-parser, Pg-promise, Method-override
 
 ## Code snippet:
-function destroyLocation(id) {
-  const queryPromise = db.none(`
-  DELETE FROM locations 
-  WHERE locations_id = $1
-  `, id);
-  return queryPromise;
+```
+function destroyLocation(id) {  
+  const queryPromise = db.none(`  
+      DELETE FROM locations  
+      WHERE locations_id = $1  
+    `, id);  
+    return queryPromise;  
 }   
+```
 
 ## Plan to fix/ features to add:
-log in authorization and authentication
-color code notes by location 
-order notes by rating
+log in authorization and authentication  
+color code notes by location  
+order notes by rating  
 add Google API
 
 ## Instructions for downloading the code and running it on localhost:
-git clone ((http url here))
-cd travel-bucket-list
-npm run dev
+git clone https://github.com/dokinqs/travel-bucket-list.git  
+cd travel-bucket-list  
+npm run dev  
