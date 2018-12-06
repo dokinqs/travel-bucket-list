@@ -25,9 +25,9 @@
     "ejs": "^2.5.8",
     "express": "^4.16.3",
     "method-override": "^2.3.10",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "node-fetch": "^2.1.2",
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.7",
     "pg-promise": "^8.3.2",
     "request": "^2.85.0",
     "request-promise": "^4.2.2"
